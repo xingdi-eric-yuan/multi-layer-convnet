@@ -1,4 +1,5 @@
-project( ConvNet )
+project( conv )
 find_package( OpenCV REQUIRED )
-add_executable( ConvNet ConvNet )
-target_link_libraries (ConvNet ${OpenCV_LIBS})
+aux_source_directory( src/. src_list )
+add_executable( conv ${src_list} )
+target_link_libraries (conv ${OpenCV_LIBS})

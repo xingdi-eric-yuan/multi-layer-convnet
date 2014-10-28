@@ -1,0 +1,61 @@
+/*
+*	Config File
+*/
+
+/*******************************************************
+*	
+*	General Parameters Config
+*
+*******************************************************/
+
+IS_GRADIENT_CHECKING = false;
+USE_LOG = false;
+BATCH_SIZE = 100;
+POOLING_METHOD = POOL_MAX;
+NON_LINEARITY = NL_RELU;
+
+TRAINING_EPOCHS = 15;
+LRATE_W = 1e-3;
+LRATE_B = 8e-4;
+ITER_PER_EPO = 2000;
+LRATE_DECAY = 0.7;
+
+/*******************************************************
+*	
+*	Layers Config
+*
+*******************************************************/
+
+$
+LAYER = CONV;
+KERNEL_SIZE = 9;
+KERNEL_AMOUNT = 10;
+WEIGHT_DECAY = 1e-6;
+POOLING_DIM = 2;
+IS_3CH_KERNEL = false;
+USE_LRN = false;
+&
+
+$
+LAYER = CONV;
+KERNEL_SIZE = 7;
+KERNEL_AMOUNT = 10;
+WEIGHT_DECAY = 1e-6;
+POOLING_DIM = 2;
+IS_3CH_KERNEL = false;
+USE_LRN = false;
+&
+
+$
+LAYER = FC;
+NUM_HIDDEN_NEURONS = 128;
+WEIGHT_DECAY = 1e-6;
+DROPOUT_RATE = 0.5;
+&
+
+$
+LAYER = SOFTMAX;
+NUM_CLASSES = 10;
+WEIGHT_DECAY = 1e-6;
+&
+
