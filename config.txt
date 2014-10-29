@@ -14,10 +14,10 @@ BATCH_SIZE = 100;
 POOLING_METHOD = POOL_MAX;
 NON_LINEARITY = NL_RELU;
 
-TRAINING_EPOCHS = 15;
+TRAINING_EPOCHS = 100;
 LRATE_W = 1e-3;
 LRATE_B = 8e-4;
-ITER_PER_EPO = 2000;
+ITER_PER_EPO = 500;
 LRATE_DECAY = 0.7;
 
 /*******************************************************

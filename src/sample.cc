@@ -36,7 +36,7 @@ run(){
     ConvNetInitPrarms(ConvLayers, HiddenLayers, smr, imgDim, nsamples);
     // Train network using Back Propogation
     trainNetwork(trainX, trainY, ConvLayers, HiddenLayers, smr, testX, testY);
-    saveConvKernel(ConvLayers, "");
+    saveConvKernel(ConvLayers, "kernel/");
     ConvLayers.clear();
     HiddenLayers.clear();
     
