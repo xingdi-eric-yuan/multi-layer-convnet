@@ -69,7 +69,6 @@ trainNetwork(const vector<Mat> &x, const Mat &y, vector<Cvl> &CLayers, vector<Fc
         Mat lr_w;
         Mat lr_b;
         double lr_b_s;
-        //double lr_b = lr_b_global;
         double mu = 1e-2;
         int k = 0;
         for(int epo = 1; epo <= training_epochs; epo++){
@@ -79,9 +78,8 @@ trainNetwork(const vector<Mat> &x, const Mat &y, vector<Cvl> &CLayers, vector<Fc
                 $$LOG mkdir(path.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH); $$_LOG
                 if(k > 30) {Momentum_w = 0.95; Momentum_b = 0.95; Momentum_d2 = 0.90;}
                 vector<Mat> batchX;
-                Mat batchY; 
-                getSample(x, &batchX, y, &batchY, batch_size, SAMPLE_COLS);
-                //if(k == 20) getNetworkLearningRate(batchX, batchY, CLayers, HiddenLayers, smr);     
+                Mat batchY = Mat::zeros(y.rows, batch_size, CV_64FC1); 
+                getSample(x, &batchX, y, &batchY, batch_size, SAMPLE_COLS);    
                 cout<<"epoch: "<<epo<<", iter: "<<k;//<<endl;           
                 getNetworkCost(batchX, batchY, CLayers, HiddenLayers, smr);
                 // softmax update

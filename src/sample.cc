@@ -5,6 +5,7 @@ using namespace std;
 std::vector<ConvLayerConfig> convConfig;
 std::vector<FullConnectLayerConfig> fcConfig;
 SoftmaxLayerConfig softmaxConfig;
+vector<int> sample_vec;
 ///////////////////////////////////
 // General parameters
 ///////////////////////////////////
@@ -18,7 +19,6 @@ int training_epochs = 0;
 double lrate_w = 0.0;
 double lrate_b = 0.0;
 int iter_per_epo = 0;
-double lrate_decay = 0.0;
 
 void
 run(){
@@ -29,6 +29,9 @@ run(){
 
     int imgDim = trainX[0].rows;
     int nsamples = trainX.size();
+    for(int i = 0; i < nsamples; i++){
+        sample_vec.push_back(i);
+    }
     vector<Cvl> ConvLayers;
     vector<Fcl> HiddenLayers;
     Smr smr;
