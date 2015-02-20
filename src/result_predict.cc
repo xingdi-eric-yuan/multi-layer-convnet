@@ -36,8 +36,10 @@ resultPredict(const vector<Mat> &x, const vector<Cvl> &CLayers, const vector<Fcl
         conved[i].clear();
     }
     conved.clear();
+    vector<vector<Mat> >().swap(conved);
     M.release();
     hidden.clear();
+    vector<Mat>().swap(hidden);
     convolvedX.release();
     return result;
 }

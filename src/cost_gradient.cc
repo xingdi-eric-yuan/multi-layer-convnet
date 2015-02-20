@@ -208,9 +208,15 @@ getNetworkCost(vector<Mat> &x, Mat &y, vector<Cvl> &CLayers, vector<Fcl> &hLayer
     M.release();
     groundTruth.release();
     cpmap.clear();
+    unordered_map<string, Mat>().swap(cpmap);
     locmap.clear();
+    unordered_map<string, vector<Point> >().swap(locmap);
     acti.clear();
+    vector<Mat>().swap(acti);
     delta.clear();
+    vector<Mat>().swap(delta);
     bernoulli.clear();
+    vector<Mat>().swap(bernoulli);
     nonlin.clear();
+    vector<Mat>().swap(nonlin);
 }

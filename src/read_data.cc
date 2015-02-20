@@ -21,6 +21,7 @@ read_MNIST_data(vector<Mat> &trainX, vector<Mat> &testX, Mat &trainY, Mat &testY
     readData(trainX, trainY, "mnist/train-images-idx3-ubyte", "mnist/train-labels-idx1-ubyte", 60000);
     readData(testX, testY, "mnist/t10k-images-idx3-ubyte", "mnist/t10k-labels-idx1-ubyte", 10000);
     preProcessing(trainX, testX);
+    dataEnlarge(trainX, trainY);
 
     cout<<"****************************************************************************"<<endl
         <<"**                        READ DATASET COMPLETE                             "<<endl
@@ -86,7 +87,7 @@ readData(vector<Mat> &x, Mat &y, string xpath, string ypath, int number_of_image
 
     //read MNIST iamge into OpenCV Mat vector
     read_Mnist(xpath, x);
-    for(int i=0; i<x.size(); i++){
+    for(int i = 0; i < x.size(); i++){
         x[i].convertTo(x[i], CV_64FC1, 1.0/255, 0);
     }
     //read MNIST label into double vector
@@ -111,12 +112,14 @@ concat(const vector<Mat> &vec){
 
 void
 preProcessing(vector<Mat> &trainX, vector<Mat> &testX){
+    /*
     for(int i = 0; i < trainX.size(); i++){
         trainX[i].convertTo(trainX[i], CV_64FC1, 1.0/255, 0);
     }
     for(int i = 0; i < testX.size(); i++){
         testX[i].convertTo(testX[i], CV_64FC1, 1.0/255, 0);
     }
+    */
     // first convert vec of mat into a single mat
     Mat tmp = concat(trainX);
     Mat tmp2 = concat(testX);

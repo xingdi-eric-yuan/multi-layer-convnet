@@ -42,7 +42,7 @@ run(){
     saveConvKernel(ConvLayers, "kernel/");
     ConvLayers.clear();
     HiddenLayers.clear();
-    
+
 }
 
 int 

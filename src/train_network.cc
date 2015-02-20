@@ -116,6 +116,7 @@ trainNetwork(const vector<Mat> &x, const Mat &y, vector<Cvl> &CLayers, vector<Fc
                     }
                 }
                 batchX.clear();
+                vector<Mat>().swap(batchX);
                 batchY.release();
                 $$LOG saveConvKernel(CLayers, path); $$_LOG
             } 
@@ -130,13 +131,16 @@ trainNetwork(const vector<Mat> &x, const Mat &y, vector<Cvl> &CLayers, vector<Fc
         v_smr_W.release();
         v_smr_b.release();
         v_hl_W.clear();
+        vector<Mat>().swap(v_hl_W);
         v_hl_b.clear();
+        vector<Mat>().swap(v_hl_b);
         v_cvl_W.clear();
+        vector<vector<Mat> >().swap(v_cvl_W);
         v_cvl_b.clear();
-        smrWd2.release();
+        vector<vector<double> >().swap(v_cvl_b);
         hlWd2.clear();
+        vector<Mat>().swap(hlWd2);
         cvlWd2.clear();
+        vector<vector<Mat> >().swap(cvlWd2);
     }
 }
-
-
