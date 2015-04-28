@@ -79,6 +79,7 @@ read_Mnist_Label(string filename, Mat &mat)
             file.read((char*) &temp, sizeof(temp));
             mat.ATD(0, i) = (double)temp;
         }
+        file.close();
     }
 }
 

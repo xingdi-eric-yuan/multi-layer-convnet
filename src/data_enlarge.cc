@@ -83,9 +83,10 @@ dataEnlarge(vector<Mat>& data, Mat& label){
         addWhiteNoise(data[i], tmp, 0.05);
         data.push_back(tmp);
     }
-    // copy label matrix
-    repeat(label, 1, 4, label);
-
+    // copy label matrix    
+    cv::Mat tmp;
+    repeat(label, 1, 4, tmp); 
+    label = tmp;
 }
 
 
